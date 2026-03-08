@@ -1,0 +1,5 @@
+GNLGRG0019;Gianluca;Grigi;92441;docente;eng
+STFGRG003;Stefano;Grigi;93541;docente;oop
+MRRRSS001;Mario;Rossi;061270001;studente;24.8;LT
+LGISVT001;Luigi;Salvati;0612708848;studente;27.3;LT
+MRRBNC001;Mario;Bianchi;061278849;studente;27.3;LT

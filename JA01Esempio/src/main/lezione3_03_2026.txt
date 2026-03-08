@@ -1,0 +1,6 @@
+Argomenti lezione 3 marzo 2026
+
+Sealed classes and interfaces
+Enum
+Statement switch
+var keyword
