@@ -39,6 +39,7 @@ public class NewMain {
                 System.out.println("ProdottoAlimentare? " + pac.isAlimentare());
             }
 
+            //Metodo pattern matching
             if (!(pc instanceof ProdottoNonAlimentare pnac)) {
                 System.out.println("Non è un prodotto alimentare");
             } else {

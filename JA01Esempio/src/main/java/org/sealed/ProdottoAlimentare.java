@@ -6,5 +6,7 @@ package org.sealed;
     non-sealed -> rimuovo il sigillo
 * */
 public non-sealed class ProdottoAlimentare extends Prodotto{
-
+    public boolean isAlimentare() {
+        return true;
+    }
 }

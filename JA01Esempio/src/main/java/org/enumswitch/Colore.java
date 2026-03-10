@@ -4,7 +4,7 @@ package org.enumswitch;
  * I tipi enum sono classi e possono avere tutte le caratteristiche
  * delle classi normali
  * Ogni elemento è una possibile istanza della classe.
- *
+ * <p></p>
  * Non è un tipo intrinsecamente immutabile.
  * Posso usare i set per modificare uno degli attributi.
  */
@@ -37,7 +37,7 @@ public enum Colore {
      * Metodi utili:
      * name() -> istanza
      * ordinal() -> numero progressivo associato a ciascuna istanza
-     * values() -> iterazione sulle possibili istanza
+     * values() -> iterazione sulle possibili istanze
      */
 
     public int getR() {

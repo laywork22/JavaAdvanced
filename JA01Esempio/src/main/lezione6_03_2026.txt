@@ -1,0 +1,4 @@
+Argomenti lezione 6 marzo 2026
+
+Pattern matching
+Record

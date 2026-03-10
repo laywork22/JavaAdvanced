@@ -8,7 +8,7 @@ public sealed class Prodotto {...}
 final class ProdottoNonAlimentare {...}
 final class ProdottoALimentare {...}
 
-!Nello stesso file della classe sigillata!
+Nello stesso file della classe sigillata!
 
 Tutte le sottoclassi di una classe sigillata devono stare nello stesso package o al più nello stesso modulo
  */
@@ -24,8 +24,6 @@ public sealed class Prodotto permits ProdottoAlimentare, ProdottoNonAlimentare {
     public int getID() {
         return id;
     }
-
-    public boolean isAlimentare() {return true;}
 }
 
 /*
