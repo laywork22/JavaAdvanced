@@ -1,0 +1,5 @@
+TestCSV
+tipo;id;nome;cognome;codiceFiscale;matricola
+Studente;s1;Mario;Rossi;MRS001;061227001
+Studente;s2;Stefano;Bianchi;STB001;06128001
+Persona;p1;Mario;Grigi;MGR001
