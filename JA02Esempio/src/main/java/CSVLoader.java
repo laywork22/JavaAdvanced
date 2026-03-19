@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CSVLoader {
-    public static <T> T load(String file) throws RuntimeException {
+    public static <T> T load(String file)  {
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             String className = br.readLine();
 

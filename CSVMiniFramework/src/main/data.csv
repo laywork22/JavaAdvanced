@@ -1,0 +1,8 @@
+it.unisa.csvframework.TestCSV
+tipo;nome;cognome;codiceFiscale;matricola
+Studente;Mario;Rossi;MRS001;06127001
+Studente;Stefano;Bianchi;STB001;06128001
+Persona;Mario;Grigi;MGR001
+Studente;Luigi;Rossi;LRS001;06127001
+Studente;Arturo;Bianchi;ATB001;06128001
+Persona;Ernesto;Grigi;EGR001
