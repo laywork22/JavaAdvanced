@@ -51,6 +51,8 @@ public class PrimaryController {
             setupStage.setTitle("Setup Connessione Client");
             setupStage.initModality(Modality.APPLICATION_MODAL);
 
+            setupStage.setResizable(false);
+            
             setupStage.showAndWait();
 
             if (!st.isConfirmed()) {
@@ -71,6 +73,8 @@ public class PrimaryController {
             setupStage.setTitle("Setup Connessione Client");
             setupStage.initModality(Modality.APPLICATION_MODAL);
 
+            setupStage.setResizable(false);
+            
             setupStage.showAndWait();
 
             if (!st.isConfirmed()) {
