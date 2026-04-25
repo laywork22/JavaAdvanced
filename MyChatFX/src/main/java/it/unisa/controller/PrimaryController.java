@@ -58,7 +58,7 @@ public class PrimaryController {
             }
 
             nc = new Server(st.getPortNum(), data -> {
-                sc.appendMessage("Client: " + (String) data);
+                sc.appendMessage(st.getHostName() + ": " + (String) data);
             });
         }
         else {
@@ -78,7 +78,7 @@ public class PrimaryController {
             }
 
             nc = new Client(st.getIp(), st.getPortNum(), data -> {
-               sc.appendMessage("Server: " + (String) data );
+               sc.appendMessage(st.getHostName() + ": " + (String) data );
             });
         }
 

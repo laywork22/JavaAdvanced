@@ -18,6 +18,8 @@ public class ClientSetupController {
     private Button openChatBtn;
     @javafx.fxml.FXML
     private TextField portNumFld;
+    @javafx.fxml.FXML
+    private TextField hostNameFld;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -25,7 +27,7 @@ public class ClientSetupController {
 
     @javafx.fxml.FXML
     public void openChat(ActionEvent actionEvent) throws IOException {
-        if (ipAddrFld.getText().isEmpty() || portNumFld.getText().isEmpty()) {
+        if (ipAddrFld.getText().isEmpty() || portNumFld.getText().isEmpty() || hostNameFld.getText().isEmpty()) {
             mostraAlert("Errore di parsing", "I campi non possono essere vuoti");
             return;
         }
@@ -42,6 +44,10 @@ public class ClientSetupController {
 
     public int getPortNum() {
         return Integer.parseInt(portNumFld.getText());
+    }
+
+    public String getHostName() {
+        return hostNameFld.getText();
     }
 
     public boolean isConfirmed() {

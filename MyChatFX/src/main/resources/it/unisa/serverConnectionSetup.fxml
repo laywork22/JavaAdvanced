@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.controller.ServerSetupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="244.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.controller.ServerSetupController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="600.0" style="-fx-background-color: #D3D3D3;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
@@ -21,6 +21,8 @@
         </HBox>
         <TextField fx:id="portNumFld" layoutX="101.0" layoutY="100.0" prefHeight="25.0" prefWidth="230.0" promptText="es. 8080" />
         <Text layoutX="21.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port number" />
-        <Button fx:id="openChatBtn" layoutX="260.0" layoutY="150.0" mnemonicParsing="false" onAction="#openChat" text="Avvia chat" />
+        <Button fx:id="openChatBtn" layoutX="260.0" layoutY="198.0" mnemonicParsing="false" onAction="#openChat" text="Avvia chat" />
+      <TextField fx:id="hostNameFld" layoutX="101.0" layoutY="144.0" prefHeight="25.0" prefWidth="230.0" promptText="Luigi's Server" />
+      <Text layoutX="21.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Host Name" />
     </children>
 </AnchorPane>
