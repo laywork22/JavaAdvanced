@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mystudentlistah;
+package it.unisa.sqlex;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,14 +20,27 @@ import java.util.List;
  */
 public class StudenteDAO implements DAO<Studente> {
 
-    private final String URL ="jdbc:sqlite:data/students.db";
+    private final String URL;
     
-    private final String username = "";
+    private final String username;
     
-    private final String password = "";
+    private final String password;
+
+    public StudenteDAO() {
+        this.URL = "jdbc:sqlite:src/main/resources/data/studenti.db";
+        this.username = "";
+        this.password = "";
+    }
+
+    public StudenteDAO(String URL, String username, String password) {
+        this.URL = URL;
+        this.username = username;
+        this.password = password;
+    }
     
-    
-    
+
+
+
     @Override
     public void aggiungi(Studente el) throws SQLException {
         
@@ -38,7 +51,7 @@ public class StudenteDAO implements DAO<Studente> {
                 
                 ) {
             
-            String addStudente = String.format("INSERT INTO studente (matricola, nome, cognome) VALUES ( '%s', '%s', '%s')", el.getMatricola(), el.getNome(),el.getCognome());
+            String addStudente = String.format("INSERT INTO studenti (matricola, nome, cognome) VALUES ( '%s', '%s', '%s')", el.getMatricola(), el.getNome(),el.getCognome());
         
         
         
@@ -61,7 +74,7 @@ public class StudenteDAO implements DAO<Studente> {
                 ) { 
          
          
-             String removeStudent = String.format("DELETE FROM studente WHERE matricola = '%s'", el.getMatricola());
+             String removeStudent = String.format("DELETE FROM studenti WHERE matricola = '%s'", el.getMatricola());
              
              stmt.executeUpdate(removeStudent);
          
@@ -75,24 +88,17 @@ public class StudenteDAO implements DAO<Studente> {
     public void aggiorna(Studente el) throws SQLException {
         
         
-        try( Connection c = DriverManager.getConnection(URL, username, password); 
-                
-                Statement stmt = c.createStatement();
-
-                
-                ) { 
+        try( Connection c = DriverManager.getConnection(URL, username, password);
+                Statement stmt = c.createStatement()) {
         
         
-            String updateStudent = String.format("UPDATE studente SET nome = '%s', cognome = '%s' WHERE matricola ='%s' ", el.getNome(), el.getCognome(), el.getMatricola() );
+            String updateStudent = String.format("UPDATE studenti SET nome = '%s', cognome = '%s' WHERE matricola ='%s' ", el.getNome(), el.getCognome(), el.getMatricola() );
                    
         
             stmt.executeUpdate(updateStudent);
         }
-        
-        
-        
-        
-        }
+
+    }
 
     @Override
     public Studente cerca(String key) throws SQLException {
@@ -100,58 +106,61 @@ public class StudenteDAO implements DAO<Studente> {
         Studente s = null;
         
         try( Connection c = DriverManager.getConnection(URL, username,password);
-                
-             PreparedStatement ps = c.prepareStatement(" SELECT * FROM studente where matricola LIKE ?");
-                
-                
-                ) {
+             PreparedStatement ps = c.prepareStatement(" SELECT * FROM studenti where matricola LIKE ?")) {
             
             String input = '%' + key + '%';
             
             ps.setString(1, input);
-        
-        
+
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()) s = new Studente(rs.getString("nome"),rs.getString("cognome"), rs.getString("matricola")); 
         
         
         }
-        
-        
-        
+
         return s;
         
-        }
+    }
+
+    public List<Studente> cerca(String[] keys) throws SQLException {
+        List<Studente> s = new ArrayList<>();
+
+        try( Connection c = DriverManager.getConnection(URL, username,password);
+             PreparedStatement ps = c.prepareStatement(" SELECT * FROM studenti where matricola LIKE ? OR nome LIKE ? OR cognome LIKE ?")) {
+
+            String searchPattern = "%" + keys[0] + "%";
+
+            ps.setString(1, searchPattern);
+            ps.setString(2, searchPattern);
+            ps.setString(3, searchPattern);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                s.add(new Studente(rs.getString("nome"),rs.getString("cognome"), rs.getString("matricola")));            }
+            }
+
+        return s;
+    }
 
     @Override
     public List<Studente> elencaTutti() throws SQLException {
         
         List<Studente> elenco = new ArrayList<>();
         
-        try( Connection c = DriverManager.getConnection(URL, username, password); 
-             PreparedStatement ps = c.prepareStatement(" SELECT * FROM studente");
-                
-             
-                
-                ) {
+        try( Connection c = DriverManager.getConnection(URL, username, password);
+             PreparedStatement ps = c.prepareStatement(" SELECT * FROM studenti")) {
+
+            ResultSet  rs = ps.executeQuery();
         
-        ResultSet  rs = ps.executeQuery();
-        
-        
-        while(rs.next()) {
-        
-            elenco.add(new Studente(rs.getString("nome"), rs.getString("cognome"), rs.getString("matricola")));
-        
+            while(rs.next()) {
+                elenco.add(new Studente(rs.getString("nome"), rs.getString("cognome"), rs.getString("matricola")));
+            }
         
         }
-        
-        
-        
-        }
-        
         
         return elenco;
-         }
+    }
     
 }

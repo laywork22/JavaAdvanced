@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mystudentlistah;
+package it.unisa.sqlex;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ public class MyStudentListAH extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MyStudentListView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/MyStudentListView.fxml"));
         
         Scene scene = new Scene(root);
         
